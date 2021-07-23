@@ -6,8 +6,8 @@ CREATE TABLE logs.server_list (
 	server_name		text NOT null UNIQUE,	-- Доменное имя сервера
 	server_ip		inet NOT null UNIQUE,	-- IP-адрес сервера
 	server_alias	text NOT NULL,			-- Обезличенное название сервера (для анонимизации реального доменного имени сервера)
-	server_type		os_type NOT null,		-- Тип сервера (Linux, Windows), необходимо для определения типа проверки (по порту ssh или RDP)
-	server_note		text					-- Комментарий к серверу
+	server_type		os_type NOT null,	-- Тип сервера (Linux, Windows), необходимо для определения типа проверки (по порту ssh или RDP)
+	server_note		text			-- Комментарий к серверу
 );
 
 -- Заливаем данные по серверам
@@ -20,8 +20,8 @@ INSERT INTO server_list VALUES
 Устанавливается связь с таблицей server_list по IP-адресу, изменение/удаление строк из главной таблицы никак не повлияет на связную */
 CREATE TABLE logs.server_testing_logs (	
 	server_ip			inet references logs.server_list (server_ip) on delete restrict on update restrict,	-- IP-адрес сервера
-	server_ping_test	text not null,																		-- Результат тестирования методом ping
-	server_rdp_test		text,																				-- Результат тестирования методом RDP
-	server_ssh_test		text,																				-- Результат тестирования методом ssh
-	date_testing		timestamp not null																	-- Дата и время тестирования
+	server_ping_test	text not null,											-- Результат тестирования методом ping
+	server_rdp_test		text,												-- Результат тестирования методом RDP
+	server_ssh_test		text,												-- Результат тестирования методом ssh
+	date_testing		timestamp not null										-- Дата и время тестирования
 );
