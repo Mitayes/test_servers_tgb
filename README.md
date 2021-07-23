@@ -33,3 +33,12 @@ SQL-запросы для создания таблиц:
 ### ![test_servers_send_info_tgb.py](https://github.com/Mitayes/test_servers_tgb/blob/main/test_servers_send_info_tgb.py)
 Извлекает последние результаты тестирования из БД, формирует сообщение о результате тестирования. Также может отправить сообщение с результатом тестирования в канал Телеграм  
 
+# Демонстрация работы
+Таблица-справочник  
+![table_server_list](./screen/table_server_list.PNG)
+  
+Таблица-агрегатор логов  
+![table_server_logs](./screen/table_server_logs.PNG)
+  
+Сообщение-результат тестирования  
+![result](./screen/result.PNG)
